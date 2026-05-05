@@ -1,0 +1,138 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Eguette — Charte Noir & Rouge
+   Toutes les couleurs en HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 220 16% 96%;
+    --foreground: 222 22% 14%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 22% 14%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 22% 14%;
+
+    /* Rouge Eguette (identité de marque) */
+    --primary: 0 78% 48%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 0 85% 60%;
+
+    /* Noir profond */
+    --secondary: 222 20% 16%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 220 14% 92%;
+    --muted-foreground: 222 12% 42%;
+
+    /* Accent vert pour actions positives */
+    --accent: 152 62% 40%;
+    --accent-foreground: 0 0% 100%;
+    --accent-glow: 152 70% 50%;
+
+    --destructive: 0 84% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 152 62% 40%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 10%;
+
+    --info: 212 85% 50%;
+    --info-foreground: 0 0% 100%;
+
+    --border: 220 14% 88%;
+    --input: 220 14% 90%;
+    --ring: 152 62% 40%;
+
+    --radius: 0.75rem;
+
+    /* Dégradés signature */
+    --gradient-hero: linear-gradient(135deg, hsl(222 22% 14%), hsl(0 78% 38%));
+    --gradient-primary: linear-gradient(135deg, hsl(0 78% 48%), hsl(0 85% 60%));
+    --gradient-accent: linear-gradient(135deg, hsl(152 62% 40%), hsl(152 70% 50%));
+    --gradient-dark: linear-gradient(180deg, hsl(222 22% 12%), hsl(222 22% 6%));
+
+    /* Ombres douces, professionnelles */
+    --shadow-elegant: 0 10px 30px -12px hsl(222 22% 14% / 0.18);
+    --shadow-card: 0 1px 2px hsl(222 22% 14% / 0.04), 0 4px 12px hsl(222 22% 14% / 0.06);
+    --shadow-glow: 0 0 32px hsl(152 70% 50% / 0.30);
+
+    --transition-smooth: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 222 24% 10%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 0 78% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 222 20% 16%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 222 18% 18%;
+    --sidebar-ring: 152 62% 40%;
+  }
+
+  .dark {
+    --background: 222 24% 8%;
+    --foreground: 220 14% 94%;
+    --card: 222 22% 12%;
+    --card-foreground: 220 14% 94%;
+    --popover: 222 22% 12%;
+    --popover-foreground: 220 14% 94%;
+    --primary: 0 78% 52%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 0 85% 62%;
+    --secondary: 222 18% 18%;
+    --secondary-foreground: 220 14% 94%;
+    --muted: 222 18% 16%;
+    --muted-foreground: 220 10% 64%;
+    --accent: 152 62% 46%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 58%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 152 62% 46%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 55%;
+    --warning-foreground: 0 0% 10%;
+    --info: 212 85% 58%;
+    --info-foreground: 0 0% 100%;
+    --border: 222 18% 20%;
+    --input: 222 18% 20%;
+    --ring: 152 62% 46%;
+    --shadow-card: 0 1px 2px hsl(0 0% 0% / 0.4), 0 4px 12px hsl(0 0% 0% / 0.3);
+    --sidebar-background: 222 26% 6%;
+    --sidebar-foreground: 220 14% 94%;
+    --sidebar-accent: 222 22% 14%;
+    --sidebar-border: 222 22% 16%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv11", "ss01";
+  }
+  h1, h2, h3, h4 {
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  .pulse-dot {
+    @apply relative inline-flex h-2.5 w-2.5;
+  }
+  .pulse-dot::before {
+    content: "";
+    @apply absolute inline-flex h-full w-full rounded-full bg-primary opacity-75 animate-ping;
+  }
+  .pulse-dot::after {
+    content: "";
+    @apply relative inline-flex rounded-full h-2.5 w-2.5 bg-primary;
+  }
+}
